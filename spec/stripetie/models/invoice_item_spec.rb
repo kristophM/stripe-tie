@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Stripetie::Models::InvoiceItem do
+describe InvoiceItem do
   context "scoping" do
     it "can be sorted by company ID" do
     end
