@@ -3,6 +3,7 @@ require 'spec_helper'
 describe InvoiceItem do
   context "scoping" do
     it "can be sorted by company ID" do
+
     end
 
     it "can be sorted by customer ID" do
@@ -10,9 +11,11 @@ describe InvoiceItem do
     end
 
     it "can be sorted by parent invoice ID" do
+
     end
 
     it "can be sorted by custom metadata parameter ID" do
+      
     end
   end
 
