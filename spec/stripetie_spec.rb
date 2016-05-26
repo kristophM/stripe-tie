@@ -12,6 +12,12 @@ describe Stripetie do
   it 'generates migration file for all Stripe objects if ActiveRecord is selected' do
   end
 
+  it 'creates tables if they do not yet exist' do
+
+  end
+
+  it 'adds new columns only if they do not already exist
+
   it 'generates a webhooks controller and routes' do
     #! Or should this be something that's strictly internal?
   end
