@@ -6,3 +6,6 @@ require 'stripetie'
 Dir[File.expand_path('../../lib/generators/stripetie/templates/*.rb', __FILE__)].each do |file|
   require file
 end
+#Establish database connection
+ActiveRecord::Base.establish_connection adapter: "postgresql"
+load File.dirname(__FILE__) + '/schema.rb'

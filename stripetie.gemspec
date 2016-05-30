@@ -32,5 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rails", "~> 4.2"
   spec.add_development_dependency "stripe", "~> 1.42"
+  spec.add_development_dependency "activerecord", "~> 4.0.0"
+  spec.add_development_dependency "pg", "~> 0.18.4"
 
 end
