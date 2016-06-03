@@ -16,7 +16,7 @@ describe Stripetie do
 
   end
 
-  it 'adds new columns only if they do not already exist
+  it 'adds new columns only if they do not already exist'
 
   it 'generates a webhooks controller and routes' do
     #! Or should this be something that's strictly internal?

@@ -20,9 +20,43 @@ Or install it yourself as:
 
     $ gem install stripetie
 
+### Stripe models and migrations
+
+To install the Stripe models (e.g. Invoices, Charges, etc.) and their respective migrations, run:
+    $ rails g install stripetie
+
+Existing models will be overwritten. Any existing database tables will not be overwritten, but rather, new columns will be added/overwritten if they are missing or differ from the Stripetie migration script.
+
+###Special models
+
+####Customer
+
+Because you will probably have your own *Customer* model and will want to relate it to Stripe, Stripetie allows you to include special methods for both to coexist. Insert the following in your Customer class:
+  ```ruby
+    class Customer < ActiveRecord::Base
+      include Stripetie::Customer
+    end
+  ```
+
+####Account (for Stripe Connect managed accounts only)
+
+If you are using Stripe Connect (e.g. for Marketplaces or multitenant SaaS systems), you will be managing multiple accounts and not just one Stripe account. In this scenario, your Customer, Invoice, Transaction records, etc. will be scoped by Account. It is advisable to name your account model as Account, Company or something sensible like that. Then, insert the following into the class (of course replacing Account with whatever you name it):
+  ```ruby
+    class Account < ActiveRecord::Base
+      include Stripetie::Account
+    end
+  ```
+
+
 ## Usage
 
-TODO: Write usage instructions here
+Todo.........................
+
+###Standard Stripe model methods
+
+###Customer methods
+
+###Account methods
 
 ## Development
 
@@ -38,4 +72,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

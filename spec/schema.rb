@@ -34,4 +34,18 @@ ActiveRecord::Schema.define do
     t.integer :total
     t.integer :webhooks_delivered_at
   end
+
+  create_table :customers, {force: true} do |t|
+    t.string :name
+    t.string :stripe_customer_id
+
+    t.timestamps null: false
+  end
+
+  create_table :accounts, {force: true} do |t|
+    t.string :name
+    t.string :stripe_account_id
+
+    t.timestamps null: false
+  end
 end
