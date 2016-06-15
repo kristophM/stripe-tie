@@ -2,7 +2,7 @@ module Stripetie
   module Customer
     def self.included(base)
       base.class_eval do
-        has_many :invoices
+        has_many :invoices, class_name: 'Invoice', primary_key: 'stripe_customer_id', foreign_key: 'customer', dependent: :destroy
         belongs_to :account
         #! Fill in all the other has_many, belong_to, etc.
       end

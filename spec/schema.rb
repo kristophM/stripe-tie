@@ -1,8 +1,26 @@
 ActiveRecord::Schema.define do
   self.verbose = false
 
-  create_table :invoices, {id: false, primary_key: :id, force: true} do |t|
+  create_table :accounts, {force: true} do |t|
+    t.string :name
+    t.string :stripe_account_id
+    t.string :country
+
+    t.timestamps null: false
+  end
+
+  create_table :customers, {force: true} do |t|
+    t.string :name
+    t.string :stripe_customer_id
+    t.references :account, index: true, foreign_key: true
+
+    t.timestamps null: false
+  end
+
+  create_table :invoices, {id: false, force: true} do |t|
     t.string :id
+    # t.references :customer, type: :string, index: true, foreign_key: true
+    t.string :customer
     t.string :object
     t.string :amount_due
     t.integer :application_fee
@@ -11,7 +29,6 @@ ActiveRecord::Schema.define do
     t.string :charge
     t.boolean :closed
     t.string :currency
-    t.string :customer
     t.integer :date
     t.string :description
     t.integer :discount
@@ -34,18 +51,5 @@ ActiveRecord::Schema.define do
     t.integer :total
     t.integer :webhooks_delivered_at
   end
-
-  create_table :customers, {force: true} do |t|
-    t.string :name
-    t.string :stripe_customer_id
-
-    t.timestamps null: false
-  end
-
-  create_table :accounts, {force: true} do |t|
-    t.string :name
-    t.string :stripe_account_id
-
-    t.timestamps null: false
-  end
+  execute "ALTER TABLE invoices ADD PRIMARY KEY (id);"
 end

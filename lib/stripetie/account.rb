@@ -3,7 +3,7 @@ module Stripetie
     def self.included(base)
       base.class_eval do
         before_create :create_stripe_account
-        has_many :customers
+        has_many :customers, dependent: :destroy
       end
     end
 

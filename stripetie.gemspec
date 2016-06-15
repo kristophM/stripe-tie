@@ -27,9 +27,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  #! Separate non-development dependencies?
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "rspec-rails", "~> 3.4"
   spec.add_development_dependency "rails", "~> 4.2"
   spec.add_development_dependency "stripe", "~> 1.42"
   spec.add_development_dependency "activerecord", "~> 4.2.6"
@@ -38,5 +40,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "stripe_mock"
   spec.add_development_dependency "factory_girl", "~> 4.7.0"
   spec.add_development_dependency "faker", "~> 1.6.3"
+  spec.add_development_dependency "database_cleaner", "~> 1.5.3"
 
 end
