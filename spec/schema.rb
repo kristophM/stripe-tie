@@ -52,4 +52,22 @@ ActiveRecord::Schema.define do
     t.integer :webhooks_delivered_at
   end
   execute "ALTER TABLE invoices ADD PRIMARY KEY (id);"
+
+  # create_table :invoice_items, {id: false, force: true} do |t|
+  #   t.string :id
+  #   t.string :object
+  #   t.integer :amount
+  #   t.string :customer
+  #   t.integer :date
+  #   t.string :description
+  #   t.boolean :discoutable
+  #   t.string :invoice
+  #   t.boolean :livemode
+  #   t.jsonb :metadata
+  #   t.jsonb :period
+  #   t.boolean :proration
+  #   t.integer :quantity
+  #   t.string :subscription
+  # end
+  # execute "ALTER TABLE invoice_items ADD PRIMARY KEY (id);"
 end
